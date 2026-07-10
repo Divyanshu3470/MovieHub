@@ -3,9 +3,7 @@ import { FaHeart, FaRegHeart } from "react-icons/fa";
 import toast from "react-hot-toast";
 
 function MovieCard({ movie, onRemoveFavourite }) {
-  const imageUrl = movie.poster_path
-    ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-    : "https://via.placeholder.com/300x450?text=No+Image";
+  const imageUrl = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
 
   const [liked, setLiked] = useState(false);
 

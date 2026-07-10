@@ -5,12 +5,11 @@ function Hero() {
     <section className="min-h-[75vh] sm:min-h-[80vh] w-full flex items-center justify-center px-4 sm:px-6 lg:px-8">
       <div className="flex flex-col items-center text-center">
 
-        <h1 className="font-extrabold leading-none">
-          <span className="block text-white text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl">
+        <h1 className="font-extrabold leading-none flex">
+          <span className="block text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
             MOVIE
           </span>
-
-          <span className="block text-blue-400 text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl">
+          <span className="block text-blue-400 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
             HUB
           </span>
         </h1>

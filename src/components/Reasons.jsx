@@ -22,59 +22,8 @@ function Reasons() {
     {
       title: "Create profiles for kids",
       desc: "Send kids on adventures with their favourite characters in a space made just for them.",
-    },
-    {
-      title: "Personalized Recommendations",
-      desc: "Discover movies and shows tailored to your taste based on your watch history.",
-    },
-    {
-      title: "Create Multiple Profiles",
-      desc: "Keep everyone's watchlist, recommendations and viewing history separate.",
-    },
-    {
-      title: "Build Your Watchlist",
-      desc: "Save your favorite movies and TV shows to watch anytime.",
-    },
-    {
-      title: "Fast & Powerful Search",
-      desc: "Find movies, TV shows, actors and genres instantly.",
-    },
-  ];
-
-  const sectionRef = useRef(null);
-  const wrapperRef = useRef(null);
-  const sliderRef = useRef(null);
-
-  useGSAP(() => {
-    if (window.innerWidth < 1024) return;
-
-    const wrapper = wrapperRef.current;
-    const slider = sliderRef.current;
-
-    const totalScroll = slider.scrollWidth - wrapper.offsetWidth;
-
-    const animation = gsap.to(slider, {
-      x: -totalScroll,
-      ease: "none",
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top top",
-        end: () => `+=${totalScroll}`,
-        pin: true,
-        scrub: 1,
-        anticipatePin: 1,
-        invalidateOnRefresh: true,
-      },
-    });
-
-    ScrollTrigger.refresh();
-
-    return () => {
-      animation.kill();
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    };
-  }, []);
-
+    }]
+    
   return (
     <section
       ref={sectionRef}
@@ -87,11 +36,9 @@ function Reasons() {
         </h1>
 
         <div
-          ref={wrapperRef}
           className="overflow-x-auto lg:overflow-hidden scrollbar-hide"
         >
           <div
-            ref={sliderRef}
             className="flex gap-4 sm:gap-6 w-max pr-4 lg:pr-8 snap-x snap-mandatory"
           >
             {reasons.map((reason, index) => (
