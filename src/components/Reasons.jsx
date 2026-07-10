@@ -1,13 +1,6 @@
-import React, { useRef } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
+import React from "react";
 
 function Reasons() {
-  const container = useRef(null);
-
   const reasons = [
     {
       title: "Enjoy on your TV",
@@ -23,46 +16,25 @@ function Reasons() {
     },
   ];
 
-  useGSAP(
-    () => {
-      gsap.from(".reason-card", {
-        y: 80,
-        opacity: 0,
-        duration: 1,
-        stagger: 0.2,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: container.current,
-          start: "top 80%",
-          toggleActions: "play none none reverse",
-        },
-      });
-    },
-    { scope: container }
-  );
-
   return (
-    <section
-      ref={container}
-      className="bg-white w-full py-12 sm:py-16"
-    >
+    <section className="bg-white py-12 sm:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8 lg:mb-12">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8">
           More reasons to join
         </h1>
 
-        <div className="overflow-x-auto lg:overflow-hidden scrollbar-hide">
-          <div className="flex justify-center gap-4 sm:gap-6 w-max lg:w-full pr-4 lg:pr-8 snap-x snap-mandatory">
+        <div className="overflow-x-auto scrollbar-hide">
+          <div className="flex gap-6 lg:justify-center min-w-max lg:min-w-0">
             {reasons.map((reason, index) => (
               <div
                 key={index}
-                className="reason-card w-[250px] sm:w-[280px] lg:w-[320px] h-[260px] sm:h-[300px] lg:h-[340px] bg-black rounded-2xl lg:rounded-3xl p-5 sm:p-6 lg:p-8 flex-shrink-0 shadow-xl snap-start hover:scale-105 transition-transform duration-300"
+                className="w-[260px] sm:w-[280px] lg:w-[320px] h-[280px] lg:h-[340px] bg-black rounded-3xl p-6 shadow-xl flex-shrink-0 hover:scale-105 transition-transform duration-300"
               >
-                <h2 className="text-white text-xl sm:text-2xl lg:text-3xl font-bold leading-tight">
+                <h2 className="text-white text-2xl lg:text-3xl font-bold">
                   {reason.title}
                 </h2>
 
-                <p className="text-gray-300 text-sm sm:text-base lg:text-lg mt-4 lg:mt-6 leading-6 lg:leading-8">
+                <p className="text-gray-300 mt-5 text-base lg:text-lg leading-7">
                   {reason.desc}
                 </p>
               </div>
