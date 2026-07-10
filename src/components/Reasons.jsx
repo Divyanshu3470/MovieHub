@@ -34,7 +34,7 @@ function Reasons() {
           className="overflow-x-auto lg:overflow-hidden scrollbar-hide"
         >
           <div
-            className="flex gap-4 sm:gap-6 w-max pr-4 lg:pr-8 snap-x snap-mandatory"
+            className="flex justify-center gap-4 sm:gap-6 w-max pr-4 lg:pr-8 snap-x snap-mandatory"
           >
             {reasons.map((reason, index) => (
               <div
