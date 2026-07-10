@@ -18,10 +18,6 @@ function Reasons() {
     {
       title: "Watch everywhere",
       desc: "Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.",
-    },
-    {
-      title: "Create profiles for kids",
-      desc: "Send kids on adventures with their favourite characters in a space made just for them.",
     }]
     
   return (
