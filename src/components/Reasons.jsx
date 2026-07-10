@@ -6,6 +6,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 function Reasons() {
+  const container = useRef(null);
+
   const reasons = [
     {
       title: "Enjoy on your TV",
@@ -18,28 +20,44 @@ function Reasons() {
     {
       title: "Watch everywhere",
       desc: "Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.",
-    }]
-    
+    },
+  ];
+
+  useGSAP(
+    () => {
+      gsap.from(".reason-card", {
+        y: 80,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: container.current,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+      });
+    },
+    { scope: container }
+  );
+
   return (
     <section
+      ref={container}
       className="bg-white w-full py-12 sm:py-16"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8 lg:mb-12">
           More reasons to join
         </h1>
 
-        <div
-          className="overflow-x-auto lg:overflow-hidden scrollbar-hide"
-        >
-          <div
-            className="flex justify-center gap-4 sm:gap-6 w-max pr-4 lg:pr-8 snap-x snap-mandatory"
-          >
+        <div className="overflow-x-auto lg:overflow-hidden scrollbar-hide">
+          <div className="flex justify-center gap-4 sm:gap-6 w-max lg:w-full pr-4 lg:pr-8 snap-x snap-mandatory">
             {reasons.map((reason, index) => (
               <div
                 key={index}
-                className="w-[250px] sm:w-[280px] lg:w-[320px] h-[260px] sm:h-[300px] lg:h-[340px] bg-black rounded-2xl lg:rounded-3xl p-5 sm:p-6 lg:p-8 flex-shrink-0 shadow-xl snap-start hover:scale-105 transition-transform duration-300">
+                className="reason-card w-[250px] sm:w-[280px] lg:w-[320px] h-[260px] sm:h-[300px] lg:h-[340px] bg-black rounded-2xl lg:rounded-3xl p-5 sm:p-6 lg:p-8 flex-shrink-0 shadow-xl snap-start hover:scale-105 transition-transform duration-300"
+              >
                 <h2 className="text-white text-xl sm:text-2xl lg:text-3xl font-bold leading-tight">
                   {reason.title}
                 </h2>
@@ -51,7 +69,6 @@ function Reasons() {
             ))}
           </div>
         </div>
-
       </div>
     </section>
   );
